@@ -1,0 +1,149 @@
+---
+import { Image } from 'astro:assets';
+import headshot from '../assets/logo.png';
+import prolyte_l from '../assets/prolyte-l.png';
+import prolyte_r from '../assets/prolyte-r.png';
+---
+
+      <Image 
+      src={headshot}
+      densities={[1, 2, 3]}
+      alt="BPM"
+      class="logo sm:my-4/12 mt-6 sm:w-4/12 w-6/12"
+      />
+      
+      <Image
+      src={prolyte_r}
+      densities={[1, 2, 3]}
+      alt="Prolyte"
+      class="prolyte prolyte-right"/>
+      
+      <Image
+      src={prolyte_l}
+      densities={[1, 2, 3]}
+      alt="Prolyte"
+      class="prolyte prolyte-left"/>
+
+
+<div class="beam beam-left sm:w-2/12 w-4/12"></div>
+<div class="beam beam-right sm:w-2/12 w-4/12"></div>
+
+
+
+<style>
+  /* Animation de lumière pour le logo */
+.logo {
+  left: 50%;
+  transform: translate(-50%,0);
+  position: relative;
+  border-radius: 100%;
+  background-color: black;
+  margin-bottom: min(50vw,30vh);
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  animation: glow 3s infinite alternate;
+}
+
+.prolyte {
+  border-image-outset: 0% 0% 0% 0%;
+  height:min(50vw,80vh);
+  width: auto;
+  z-index: -20;
+  top: 15vh;
+}
+
+.prolyte-left{
+  left: -5%;
+  position:absolute;
+  transform-origin: left;
+}
+.prolyte-right{
+  right: -5%;
+  position:absolute;
+
+  transform-origin: right;
+}
+
+.beam {
+  position: absolute;
+  height: 110%;
+  top:-5%;
+  z-index: -10;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  transform: rotate(0deg);
+  transform-origin: top;
+  border-bottom-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+  clip-path: polygon(47% 0%, 53% 0%, 100% 100%, 0% 100%);
+  transition: transform 2s ease-in-out; /* Transition fluide pour la rotation */;
+}
+
+.beam-left {
+  left: 20%;
+}
+.beam-right {
+  right: 20%;
+}
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+}
+
+@keyframes hover-glow {
+  0% {
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+  }
+  100% {
+    box-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff;
+  }
+
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo:hover {
+  animation: hover-glow 1s forwards;
+  
+}
+
+</style>
+
+<script>
+  (function() {
+    const spotlights = document.getElementsByClassName('beam');
+  
+    function getRandomAngle() {
+        // Génère un angle aléatoire entre -30 et 30 degrés
+        return Math.random() * 60 - 30;
+    }
+  
+    function rotateSpotlight() {
+        for (var i = 0; i < spotlights.length; i++) {
+          var spotlight = spotlights[i];
+          const angle = getRandomAngle(); // Obtient un nouvel angle aléatoire
+          spotlight.style.transform = `rotate(${angle}deg)`;
+        }
+        
+        // Déclenche la prochaine rotation après un délai aléatoire (entre 1 et 3 secondes)
+        setTimeout(rotateSpotlight, Math.random() * 2000 + 1000);
+    }
+  
+    // Démarre l'animation
+    rotateSpotlight();
+  })();
+  
+  </script>

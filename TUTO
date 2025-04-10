@@ -1,0 +1,9 @@
+node ./dist/server/entry.mjs
+ou pour override : HOST=0.0.0.0 PORT=4321 node ./dist/server/entry.mjs
+et pour les clés ssh : SERVER_KEY_PATH=./private/key.pem SERVER_CERT_PATH=./private/cert.pem node ./dist/server/entry.mjs
+après npm run build (sinon pas de changement visibles)
+
+npm run dev pour lancer en mode dev
+
+pour lancer le serveur dde jeu : ./server_machin.x86 server --headless
+

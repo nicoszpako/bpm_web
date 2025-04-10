@@ -1,0 +1,61 @@
+---
+import { useEffect } from 'astro/jsx-runtime'; // Utilisation de l'effet natif d'Astro
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+export default function Model3D() {
+  useEffect(() => {
+    let container;
+    let scene, camera, renderer;
+
+    function init() {
+      // Créer une scène
+      scene = new THREE.Scene();
+
+      // Créer une caméra
+      camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      camera.position.z = 2;
+
+      // Créer un renderer
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      container.appendChild(renderer.domElement);
+
+      // Charger le modèle glTF
+      const loader = new GLTFLoader();
+      loader.load(
+        '/path/to/your/model.gltf', // Remplacez par le chemin de votre modèle glTF
+        (gltf) => {
+          scene.add(gltf.scene);
+          animate();
+        },
+        undefined,
+        (error) => {
+          console.error('An error happened while loading the model', error);
+        }
+      );
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+
+    container = document.getElementById('3d-container');
+    init();
+
+    // Nettoyage à la fin
+    return () => {
+      renderer.dispose();
+    };
+  }, []);
+
+  return (
+    <div id="3d-container"></div>
+  );
+}

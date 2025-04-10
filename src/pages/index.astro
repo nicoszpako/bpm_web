@@ -1,0 +1,267 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+
+import Card from "../components/Card.astro";
+import Heading from "../components/Heading.astro";
+import CustomImageScroll from "../components/CustomImageScroll.astro";
+import CTA from "../components/CTA.astro";
+import Contact from "../components/Contact.astro";
+import BPM from "../components/BPM.astro";
+
+import Logo from '../assets/logo_m.png';
+import Orga from '../assets/orga.jpg';
+import cdj from '../assets/cdj.png';
+import x32 from '../assets/x32.png';
+import b5r from '../assets/5r.png';
+import gm from '../assets/gm.png';
+import ks from '../assets/ks118.png';
+import spark from '../assets/spark.png';
+
+import Anaren from "../components/Anaren.astro";
+import AM_WEI from "../components/AM_WEI.astro";
+import AM_GV from "../components/AM_GV.astro";
+import AM_Parrainage from "../components/AM_Parrainage.astro";
+import Python from "../components/Python.astro";
+---
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
+
+
+<Layout title="Web Developer Portfolio">
+  <div id="contents">
+    <main class="container">
+      <div class="mb-16">
+        <Heading />
+        <BPM></BPM>
+        <p
+          class="mt-4 text-lg text-zinc-500 dark:text-zinc-400 font-light lg:text-xl"
+        >
+          BPM Club Sono est le club son et lumières du campus des écoles d'ingénieurs Télécom SudParis (TSP) et d'ingénieurs-managers Institut Mines-Télécom Business School (IMT-BS), situé à Évry-Courcouronnes. 
+          Nous installons notre matériel et animons des soirées tout au long de l'années, lors de prestations pour des associations et clubs du campus.
+          <br><br>
+          Nous réalisons aussi de nombreuses prestations extérieures au campus, que ce soit pour d'autres écoles ou des particuliers, dans lesquelles nous mettons à disposition nos compétences et notre matériel.
+          <a
+            href="#contact"
+            class="underline text-gray-300"> Contact</a
+          >.
+        </p>
+      </div>
+
+
+      <div class="mb-16">
+        <h2
+          class="text-3xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white"
+        >
+          Matériel professionnel
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+          <div class="bg-zinc-900 p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-white mb-2">CDJ 2000 Nexus 2</h3>
+            <Image 
+            src={cdj}
+            densities={[1, 2, 3]}
+            alt="CDJ 2000 Nexus 2"
+            class="w-9/12 block mx-auto"
+            />
+            <p class="text-zinc-400">Lecteurs DJ haut de gamme Pioneer utilisés dans les plus grands clubs. Idéal pour les DJ professionnels.</p>
+          </div>
+          <div class="bg-zinc-900 p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-white mb-2">Console Behringer X32</h3>
+            <Image 
+            src={x32}
+            densities={[1, 2, 3]}
+            class="w-9/12 block mx-auto"
+            alt="X32"
+            />
+            <p class="text-zinc-400">Console numérique puissante avec effets intégrés, parfaite pour gérer des événements complexes en live.</p>
+          </div>
+          <div class="bg-zinc-900 p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-white mb-2">Subwoofer QSC KS118</h3>
+            <Image 
+            src={ks}
+            densities={[1, 2, 3]}
+            class="w-9/12 block mx-auto"
+            alt="KS118"
+            />
+            <p class="text-zinc-400">Caisson de basses ultra performant pour une restitution sonore profonde et percutante.</p>
+          </div>
+          <div class="bg-zinc-900 p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-white mb-2">Machines à étincelles</h3>
+            <Image 
+            src={spark}
+            densities={[1, 2, 3]}
+            class="w-9/12 block mx-auto"
+            alt="Machine à étincelles"
+            />
+            <p class="text-zinc-400">Effet visuel spectaculaire pour des événements mémorables, en toute sécurité.</p>
+          </div>
+          <div class="bg-zinc-900 p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-white mb-2">Éclairage Beam 5R</h3>
+            <Image 
+            src={b5r}
+            densities={[1, 2, 3]}
+            class="w-9/12 block mx-auto"
+            alt="Beam 5R"
+            />
+            <p class="text-zinc-400">Lumières puissantes pour effets scéniques dynamiques et professionnels en intérieur comme en extérieur.</p>
+          </div>
+          <div class="bg-zinc-900 p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-white mb-2">GrandMa Command Wing</h3>
+            <Image 
+            src={gm}
+            densities={[1, 2, 3]}
+            class="w-9/12 block mx-auto"
+            alt="GrandMA"
+            />
+            <p class="text-zinc-400">Contrôleur lumière professionnel pour une programmation et une gestion fine des jeux de lumière.</p>
+          </div>
+        </div>
+        
+      </div>
+
+
+      <div class="mb-16">
+        <h2
+          class="text-3xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white"
+        >
+          Nous
+        </h2>
+ 
+        <div class="shadow">
+          <Image 
+          src={Orga}
+          densities={[1, 2, 3]}
+          alt="Organigramme du club"
+          />
+        </div>
+
+
+      
+      </div>
+
+     
+      <div class="my-8 bg-black">
+        <CTA />
+      </div>
+      <div class="my-8">
+
+        <Contact />
+      </div>
+
+    </main>
+  </div>
+</Layout>
+
+<style is:global>
+  main {
+    margin: auto;
+    padding: 0.75rem;
+    width: 1100px;
+    max-width: 100%;
+    color: white;
+    line-height: 1.6;
+  }
+  .project-image {
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+  .center { 
+    display: block; margin-left: auto; margin-right: auto; width: 50%;
+   } 
+
+  .project-cards {
+  }
+  .video-wrapper {
+    background: #111111;
+    padding: calc(1.5rem - 1px);
+    line-height: 1.4;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  .project-column > div {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .projects-alt > li {
+    gap: 1rem !important;
+  }
+  .astro-a {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translatex(-50%);
+    width: 220px;
+    height: auto;
+    z-index: -1;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+    font-size: 2.75rem;
+  }
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .link-card-grid {
+    display: grid;
+    gap: 0;
+    padding: 0;
+  }
+  .read-more {
+    color: #fff;
+  }
+  details {
+    position: relative;
+    top: -1px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+    max-width: 900px;
+  }
+  details > div {
+    max-width: 830px;
+  }
+
+  canvas {
+    left: 50%;
+    transform: translate(-50%,0);
+    position: absolute;
+  }
+
+  summary:hover {
+    cursor: pointer;
+  }
+</style>
+
+<script></script>
