@@ -18,10 +18,19 @@ import gm from '../assets/gm.png';
 import ks from '../assets/ks118.png';
 import spark from '../assets/spark.png';
 
-import Anaren from "../components/Anaren.astro";
-import AM_WEI from "../components/AM_WEI.astro";
-import AM_GV from "../components/AM_GV.astro";
-import AM_Parrainage from "../components/AM_Parrainage.astro";
+import ensapvs from '../assets/partenaires/ensapvs.png';
+import imtbs from '../assets/partenaires/imtbs.png';
+import ipparis from '../assets/partenaires/ipparis.png';
+import tsp from '../assets/partenaires/tsp.png';
+import tp from '../assets/partenaires/tp.png';
+import tedx from '../assets/partenaires/tedx.png';
+
+import ma from '../assets/outils/ma.png';
+import nm from '../assets/outils/nm.png';
+import qlc from '../assets/outils/qlc.png';
+import sketchup from '../assets/outils/sketchup.png';
+import sv from '../assets/outils/sv.png';
+
 import Python from "../components/Python.astro";
 ---
 <script type="importmap">
@@ -37,7 +46,7 @@ import Python from "../components/Python.astro";
 <Layout title="Web Developer Portfolio">
   <div id="contents">
     <main class="container">
-      <div class="mb-16">
+      <div class="mb-16 ">
         <Heading />
         <BPM></BPM>
         <p
@@ -55,11 +64,11 @@ import Python from "../components/Python.astro";
       </div>
 
 
-      <div class="mb-16">
+      <div class="mb-16 text-center">
         <h2
           class="text-3xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white"
         >
-          Matériel professionnel
+          Notre matériel professionnel
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
@@ -127,10 +136,68 @@ import Python from "../components/Python.astro";
         
       </div>
 
+      
+      <div class="mb-16">
+        <div class="outils-section mb-16">
+          <h2 class="text-3xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white">
+            Les outils que nous maîtrisons
+          </h2>
+          <div class="outils-grid mt-8">
+            <div class="outil-card">
+              <Image src={ma} alt="grandMA2 onPC" class="outils-logo" />
+              <h3 class="outil-titre">grandMA 2</h3>
+              <p class="outil-desc">Contrôle des lumières à grande échelle depuis une console MA Lighting</p>
+            </div>
+            <div class="outil-card">
+              <Image src={nm} alt="LA Network Manager" class="outils-logo" />
+              <h3 class="outil-titre">LA Network Manager</h3>
+              <p class="outil-desc">Paramétrage et configuration du matériel L-Acoustics</p>
+            </div>
+            <div class="outil-card">
+              <Image src={qlc} alt="QLC+" class="outils-logo" />
+              <h3 class="outil-titre">QLC+</h3>
+              <p class="outil-desc">Contrôle des lumières depuis un ordinateur</p>
+            </div>
+            <div class="outil-card">
+              <Image src={sketchup} alt="Sketchup" class="outils-logo" />
+              <h3 class="outil-titre">Google Sketchup</h3>
+              <p class="outil-desc">Modélisation en 3D de la structure</p>
+            </div>
+            <div class="outil-card">
+              <Image src={sv} alt="LA Sound Vision" class="outils-logo" />
+              <h3 class="outil-titre">LA Sound Vision</h3>
+              <p class="outil-desc">Modélisation de la répartition du son en 3D</p>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+
 
       <div class="mb-16">
         <h2
-          class="text-3xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white"
+          class="text-3xl text-center mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white"
+        >
+          Ils nous ont fait confiance
+        </h2>
+        <div class="partenaires-carousel-container">
+          <div class="partenaires-carousel">
+            <Image src={ipparis} alt="Institut Polytechnique de Paris" class="partenaires-logo" />
+            <Image src={tsp} alt="Télécom SudParis" class="partenaires-logo" />
+            <Image src={imtbs} alt="Institut Mines-Télécom Business School" class="partenaires-logo" />
+            <Image src={tedx} alt="TEDx Télécom SudParis" class="partenaires-logo" />
+            <Image src={ensapvs} alt="ENSAPVS" class="partenaires-logo" />
+            <Image src={tp} alt="Techno Parade" class="partenaires-logo" />
+          </div>
+        </div>      
+      </div>
+
+
+
+      <div class="mb-16">
+        <h2
+          class="text-3xl mt-6 text-center font-medium lg:text-4xl tracking-tight text-primary dark:text-white"
         >
           Nous
         </h2>
@@ -140,6 +207,7 @@ import Python from "../components/Python.astro";
           src={Orga}
           densities={[1, 2, 3]}
           alt="Organigramme du club"
+          class="orga-img"
           />
         </div>
 
@@ -262,6 +330,95 @@ import Python from "../components/Python.astro";
   summary:hover {
     cursor: pointer;
   }
+  .partenaires-carousel-container {
+  overflow: hidden;
+  position: relative;
+  margin-top: 2rem;
+}
+
+  .partenaires-carousel {
+    display: flex;
+    gap: 2rem;
+    animation: partenaires-scroll 25s linear infinite;
+    padding: 1rem 0;
+  }
+
+  .partenaires-logo {
+    height: 20vh;
+    width: auto;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .partenaires-logo:hover {
+    filter: none;
+    transform: scale(1.05);
+  }
+
+  @keyframes partenaires-scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .outils-section {
+  text-align: center;
+}
+
+.outils-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+  justify-items: center;
+}
+
+.outil-card {
+  padding: 1.5rem 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 280px;
+  text-align: center;
+}
+
+.outil-card:hover {
+  transform: translateY(-4px);
+}
+
+.outils-logo {
+  max-height: 150px;
+  width: auto;
+  margin: 0 auto 1rem auto;
+  filter: brightness(1.2);
+  padding: 3vh;
+  border-radius: 2vh;
+  background-color: #373737;
+  transition: filter 0.3s ease;
+}
+
+.outils-logo:hover {
+  filter: none;
+}
+
+.outil-titre {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.outil-desc {
+  font-size: 0.95rem;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+.orga-img {
+  margin-top: 8vh;
+}
+
 </style>
 
 <script></script>
