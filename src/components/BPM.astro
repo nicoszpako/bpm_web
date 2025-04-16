@@ -5,11 +5,12 @@ import prolyte_l from '../assets/prolyte-l.png';
 import prolyte_r from '../assets/prolyte-r.png';
 ---
 
+  
       <Image 
       src={headshot}
       densities={[1, 2, 3]}
       alt="BPM"
-      class="logo sm:my-4/12 mt-6 sm:w-4/12 w-6/12"
+      class="logo"
       />
       
       <Image
@@ -34,8 +35,11 @@ import prolyte_r from '../assets/prolyte-r.png';
   /* Animation de lumière pour le logo */
 .logo {
   left: 50%;
-  transform: translate(-50%,0);
-  position: relative;
+  top: calc(10vh + (min(50vw,80vh))/2);
+  height: min(50vw,40vh);
+  width: auto;
+  transform: translate(-50%,-50%);
+  position: absolute;
   border-radius: 100%;
   background-color: black;
   margin-bottom: min(50vw,30vh);
@@ -48,16 +52,16 @@ import prolyte_r from '../assets/prolyte-r.png';
   height:min(50vw,80vh);
   width: auto;
   z-index: -20;
-  top: 15vh;
+  top: 10vh;
 }
 
 .prolyte-left{
-  left: -5%;
+  left: 0%;
   position:absolute;
   transform-origin: left;
 }
 .prolyte-right{
-  right: -5%;
+  right: 0%;
   position:absolute;
 
   transform-origin: right;
